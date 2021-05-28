@@ -4,6 +4,10 @@ A simple example of recording with the front camera in a mobile browser.
 
 **NOTE:** This works in Safari, but I had trouble with mobile Firefox on iOS.
 
+## Live Demo
+
+👉 <https://record-video.netlify.app/>
+
 ## Getting Started
 
 First, run the development server:
