@@ -61,7 +61,7 @@ export default function Home() {
             Record Video
           </button>
           <input
-            style={vid ? {} : { position: "absolute", left: -9999 }} // Hide off screen when theres no vid
+            // style={vid ? {} : { position: "absolute", left: -9999 }} // Hide off screen when theres no vid
             ref={inputRef}
             onChange={(e) => {
               const vid = e.target.files[0];
