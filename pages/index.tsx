@@ -46,44 +46,54 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Record Video</h1>
-        <p>For fun and profit.</p>
-        <form action="" onSubmit={handleSubmit}>
-          <button
-            style={{
-              ...buttonStyle,
-            }}
-            onClick={(e) => {
-              if (inputRef.current) {
-                inputRef.current.click();
-              }
-            }}>
-            Record Video
-          </button>
-          <input
-            // style={vid ? {} : { position: "absolute", left: -9999 }} // Hide off screen when theres no vid
-            ref={inputRef}
-            onChange={(e) => {
-              const vid = e.target.files[0];
-              setVid(vid);
-              setSrc(URL.createObjectURL);
-            }}
-            type="file"
-            accept="video/*"
-            capture="user"
-          />
-          <button
-            style={{
-              ...buttonStyle,
-              background: "black",
-              color: "white",
-              display: "block",
-              marginTop: 10,
-            }}
-            type="submit">
-            Submit
-          </button>
-        </form>
+        {src ? (
+          <>
+            <h1>You're a star 🤩</h1>
+            <video src={src} controls></video>
+          </>
+        ) : (
+          <>
+            <h1>Record Video</h1>
+            <p>For fun and profit.</p>
+            <form onSubmit={handleSubmit}>
+              <button
+                style={{
+                  ...buttonStyle,
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (inputRef.current) {
+                    inputRef.current.click();
+                  }
+                }}>
+                Record Video
+              </button>
+              <input
+                style={vid ? {} : { position: "absolute", left: -9999 }} // Hide off screen when theres no vid
+                ref={inputRef}
+                onChange={(e) => {
+                  const vid = e.target.files[0];
+                  setVid(vid);
+                  setSrc(URL.createObjectURL);
+                }}
+                type="file"
+                accept="video/*"
+                capture="user"
+              />
+              <button
+                style={{
+                  ...buttonStyle,
+                  background: "black",
+                  color: "white",
+                  display: "block",
+                  marginTop: 10,
+                }}
+                type="submit">
+                Submit
+              </button>
+            </form>
+          </>
+        )}
       </main>
     </div>
   );
