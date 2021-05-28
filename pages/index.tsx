@@ -74,7 +74,7 @@ export default function Home() {
                 onChange={(e) => {
                   const vid = e.target.files[0];
                   setVid(vid);
-                  setSrc(URL.createObjectURL);
+                  setSrc(URL.createObjectURL(vid));
                 }}
                 type="file"
                 accept="video/*"
