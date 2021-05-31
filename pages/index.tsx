@@ -27,6 +27,15 @@ export default function Home() {
     }
 
     alert("Thank you! That is a great video.");
+
+    // To handle this on the server you would do something like this:
+    //
+    // const data = new FormData()
+    // data.append('user-video', vid);
+    // fetch('/backend', {
+    //   method: 'POST',
+    //   body: data
+    // })
   };
 
   // Clean up object URL if present
